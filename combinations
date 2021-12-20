@@ -1,0 +1,25 @@
+import java.util.*;
+public class Main
+{
+	public static void main(String[] args) {
+		int n,k,com=0;
+		Scanner sc=new Scanner(System.in);
+		n=sc.nextInt();
+		k=sc.nextInt();
+		while(k>0)
+		{
+		    int n1=n;
+		    int nr=1,dr=1;
+		    for(int i=1;i<=k;i++)
+		    {
+		       nr*=n;
+		       dr*=i;
+		       n--;
+		    }
+		    n=n1;
+		    com=com+(nr/dr);
+		    k--;
+		}
+		System.out.print(com);
+	}
+}
