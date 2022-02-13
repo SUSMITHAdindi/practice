@@ -1,0 +1,40 @@
+#include <stdio.h>
+
+int main()
+{
+    
+
+int n,c=0,a[100]={0},i=0,j,tem;
+scanf("%d",&n);
+while(n>0)
+{
+    a[i]=n%10;
+    n=n/10;
+    i++;
+    c++;
+}
+for( i=0;i<c;i++)
+{
+    for(int j=i+1;j<c;j++)
+    {
+        if(a[i]>a[j])
+        {
+            tem=a[i];
+            a[i]=a[j];
+            a[j]=tem;
+        }
+    }
+}
+
+for(i=0;i<c;i++)
+{  
+    n=n*10+a[i];
+    
+}
+printf("%d",n);
+    return 0;
+}
+----------------------------------------------------------------
+OUTPUT:
+2114
+1124
