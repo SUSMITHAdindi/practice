@@ -1,0 +1,50 @@
+/*function that takes a array of integers and size of the array as inputs and returns 1 if there are an even number of fibonacci numbers in the array and return 0 other wise*/
+#include <stdio.h>
+int even_count_fib(int lst[],int size)
+{
+    int lst1[size],i,temp,j,count=0;
+    
+    int f1=0,f2=1,f3;
+    for(i=0;i<size;i++){
+        for(j=i+1;j<size;j++)
+        {
+            if(lst[i]>lst[j])
+            {
+                temp=lst[j];
+                lst[j]=lst[i];
+                lst[i]=temp;
+            }
+        }
+    }
+    f3=f1+f2;
+    while(f3<=lst[size-1])
+    {
+        for(i=0;i<size;i++)
+        {
+            if(f3==lst[i])
+            count++;
+            if(f3<lst[i])
+            break;
+        }
+        f1=f2;
+        f2=f3;
+        f3=f1+f2;
+    }
+    if(count%2==0)
+    return 1;
+    else
+    return 0;
+    
+}
+int main()
+{
+    int size,lst[100],i;
+    
+    scanf("%d",&size);
+    for(i=0;i<size;i++)
+    scanf("%d",&lst[i]);
+    printf("%d",even_count_fib(lst,size));
+    
+
+    return 0;
+}
