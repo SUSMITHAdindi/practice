@@ -4,7 +4,7 @@ int even_count_fib(int lst[],int size)
 {
     int lst1[size],i,temp,j,count=0;
     
-    int f1=0,f2=1,f3;
+    int f1=0,f2=1,f3=0;
     for(i=0;i<size;i++){
         for(j=i+1;j<size;j++)
         {
@@ -16,9 +16,12 @@ int even_count_fib(int lst[],int size)
             }
         }
     }
-    f3=f1+f2;
+    //for(i=0;i<size;i++)
+   // printf("%d ",lst[i]);
+    //printf("\n");
     while(f3<=lst[size-1])
     {
+        //printf("%d ",f3);
         for(i=0;i<size;i++)
         {
             if(f3==lst[i])
@@ -26,13 +29,17 @@ int even_count_fib(int lst[],int size)
             if(f3<lst[i])
             break;
         }
+        
+        f3=f1+f2;
         f1=f2;
         f2=f3;
-        f3=f1+f2;
     }
+    //printf("\n%d",count);
+    if(count==0)
+    return -1;
     if(count%2==0)
     return 1;
-    else
+    
     return 0;
     
 }
@@ -43,7 +50,7 @@ int main()
     scanf("%d",&size);
     for(i=0;i<size;i++)
     scanf("%d",&lst[i]);
-    printf("%d",even_count_fib(lst,size));
+    printf("\n%d",even_count_fib(lst,size));
     
 
     return 0;
